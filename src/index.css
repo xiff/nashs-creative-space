@@ -6,51 +6,51 @@
 
 @layer base {
   :root {
-    --background: 263 84% 6%;
-    --foreground: 280 100% 95%;
+    --background: 0 0% 100%;
+    --foreground: 263 60% 15%;
 
-    --card: 263 60% 12%;
-    --card-foreground: 280 100% 95%;
+    --card: 0 0% 98%;
+    --card-foreground: 263 60% 15%;
 
-    --popover: 263 60% 12%;
-    --popover-foreground: 280 100% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 263 60% 15%;
 
-    --primary: 322 100% 60%;
-    --primary-foreground: 263 84% 6%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 263 50% 20%;
-    --secondary-foreground: 280 100% 95%;
+    --secondary: 263 30% 95%;
+    --secondary-foreground: 263 60% 25%;
 
-    --muted: 263 40% 15%;
-    --muted-foreground: 280 30% 65%;
+    --muted: 263 20% 96%;
+    --muted-foreground: 263 20% 45%;
 
-    --accent: 270 80% 65%;
-    --accent-foreground: 280 100% 95%;
+    --accent: 263 50% 92%;
+    --accent-foreground: 263 70% 40%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 263 40% 20%;
-    --input: 263 40% 18%;
-    --ring: 322 100% 60%;
+    --border: 263 20% 90%;
+    --input: 263 20% 92%;
+    --ring: 263 70% 50%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
     --neon-pink: 322 100% 60%;
-    --neon-purple: 270 80% 65%;
+    --neon-purple: 263 70% 50%;
     --neon-blue: 200 100% 60%;
     --deep-purple: 263 84% 6%;
-    --violet: 263 60% 25%;
+    --violet: 263 70% 50%;
 
     /* Gradients */
-    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-pink)), hsl(var(--neon-purple)));
-    --gradient-card: linear-gradient(180deg, hsl(263 60% 14%), hsl(263 60% 8%));
-    --gradient-hero: radial-gradient(ellipse at center top, hsl(263 60% 15%) 0%, hsl(var(--background)) 70%);
+    --gradient-neon: linear-gradient(135deg, hsl(var(--violet)), hsl(var(--neon-purple)));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(263 30% 98%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(263 30% 98%) 100%);
 
     /* Shadows */
-    --shadow-neon: 0 0 20px hsl(var(--neon-pink) / 0.5), 0 0 40px hsl(var(--neon-pink) / 0.3);
-    --shadow-card: 0 10px 40px hsl(263 84% 2% / 0.5);
+    --shadow-neon: 0 0 20px hsl(var(--violet) / 0.3), 0 0 40px hsl(var(--violet) / 0.2);
+    --shadow-card: 0 10px 40px hsl(263 50% 20% / 0.1);
 
     /* Fonts */
     --font-display: 'Bebas Neue', sans-serif;
@@ -99,7 +99,7 @@
   }
 
   .glow-text {
-    text-shadow: 0 0 20px hsl(var(--neon-pink) / 0.8), 0 0 40px hsl(var(--neon-pink) / 0.4);
+    text-shadow: 0 0 30px hsl(var(--violet) / 0.4), 0 0 60px hsl(var(--violet) / 0.2);
   }
 
   .bg-gradient-hero {
@@ -111,7 +111,7 @@
   }
 
   .border-glow {
-    border: 1px solid hsl(var(--neon-pink) / 0.3);
+    border: 1px solid hsl(var(--violet) / 0.3);
   }
 }
 
@@ -140,10 +140,10 @@
 
 @keyframes pulse-glow {
   0%, 100% { 
-    box-shadow: 0 0 20px hsl(var(--neon-pink) / 0.5), 0 0 40px hsl(var(--neon-pink) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--violet) / 0.3), 0 0 40px hsl(var(--violet) / 0.2);
   }
   50% { 
-    box-shadow: 0 0 30px hsl(var(--neon-pink) / 0.7), 0 0 60px hsl(var(--neon-pink) / 0.5);
+    box-shadow: 0 0 30px hsl(var(--violet) / 0.5), 0 0 60px hsl(var(--violet) / 0.3);
   }
 }
 
