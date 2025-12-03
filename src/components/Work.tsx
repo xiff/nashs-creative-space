@@ -20,6 +20,10 @@ import workMuzicos from "@/assets/works/muzicos.jpg";
 import workLogos2 from "@/assets/works/logos-2.jpg";
 import workPaiheme from "@/assets/works/paiheme.jpg";
 import workPenbank from "@/assets/works/penbank.jpg";
+import workSlaw from "@/assets/works/slaw.jpg";
+import workTonneauJoyeux from "@/assets/works/tonneau-joyeux.jpg";
+import workKwaiipunk from "@/assets/works/kwaiipunk.jpg";
+import workTm from "@/assets/works/tm.jpg";
 
 const Work = () => {
   const works = [
@@ -42,6 +46,10 @@ const Work = () => {
     { title: "LOGOS 2", image: workLogos2, bg: "bg-gray-100" },
     { title: "PAIHEME", image: workPaiheme, bg: "bg-teal-400" },
     { title: "PENBANK", image: workPenbank, bg: "bg-pink-400" },
+    { title: "SLAW", image: workSlaw, bg: "bg-teal-600" },
+    { title: "TONNEAU JOYEUX", image: workTonneauJoyeux, bg: "bg-yellow-400" },
+    { title: "KWAIIPUNK", image: workKwaiipunk, bg: "bg-blue-300" },
+    { title: "TM", image: workTm, bg: "bg-zinc-700" },
   ];
 
   return (
