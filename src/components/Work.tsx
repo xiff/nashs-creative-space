@@ -10,6 +10,16 @@ import workCara from "@/assets/works/cara.jpg";
 import workCaristream from "@/assets/works/caristream.jpg";
 import workComics from "@/assets/works/comics.jpg";
 import workCoucou from "@/assets/works/coucou.jpg";
+import workFdlt from "@/assets/works/fdlt.jpg";
+import workFortRabbit from "@/assets/works/fort-rabbit.jpg";
+import workInsomniHack from "@/assets/works/insomni-hack.jpg";
+import workHorse from "@/assets/works/horse.jpg";
+import workLeContretemps from "@/assets/works/le-contretemps.jpg";
+import workLogos1 from "@/assets/works/logos-1.jpg";
+import workMuzicos from "@/assets/works/muzicos.jpg";
+import workLogos2 from "@/assets/works/logos-2.jpg";
+import workPaiheme from "@/assets/works/paiheme.jpg";
+import workPenbank from "@/assets/works/penbank.jpg";
 
 const Work = () => {
   const works = [
@@ -22,6 +32,16 @@ const Work = () => {
     { title: "CARISTREAM", image: workCaristream, bg: "bg-slate-700" },
     { title: "COMICS", image: workComics, bg: "bg-teal-400" },
     { title: "COUCOU", image: workCoucou, bg: "bg-amber-600" },
+    { title: "FÊTE DE LA TOMATE", image: workFdlt, bg: "bg-teal-600" },
+    { title: "FORT RABBIT", image: workFortRabbit, bg: "bg-amber-100" },
+    { title: "INSOMNI'HACK", image: workInsomniHack, bg: "bg-red-700" },
+    { title: "HORSE", image: workHorse, bg: "bg-stone-400" },
+    { title: "LE CONTRETEMPS", image: workLeContretemps, bg: "bg-teal-400" },
+    { title: "LOGOS", image: workLogos1, bg: "bg-gray-100" },
+    { title: "MUZICOS", image: workMuzicos, bg: "bg-violet-500" },
+    { title: "LOGOS 2", image: workLogos2, bg: "bg-gray-100" },
+    { title: "PAIHEME", image: workPaiheme, bg: "bg-teal-400" },
+    { title: "PENBANK", image: workPenbank, bg: "bg-pink-400" },
   ];
 
   return (
