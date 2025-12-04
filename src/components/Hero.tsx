@@ -14,17 +14,24 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
-          <p className="text-muted-foreground uppercase tracking-[0.3em] mb-4 animate-fade-in">
-            Designer & Artist
-          </p>
           <h1 className="font-display text-8xl md:text-[12rem] leading-none mb-6 animate-slide-up">
             <span className="text-violet glow-text">NASH</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-12 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            Creating bold visuals that blend cyberpunk aesthetics with kawaii culture
+          <p className="text-2xl md:text-3xl text-foreground font-medium mb-2 animate-slide-up" style={{ animationDelay: "0.1s" }}>
+            Nicolas Ryffel
           </p>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+            Créateur d'images et d'identités
+          </p>
+          <a 
+            href="mailto:nash@n45h.ch" 
+            className="text-lg text-muted-foreground hover:text-primary transition-colors animate-slide-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            nash@n45h.ch
+          </a>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 animate-slide-up" style={{ animationDelay: "0.4s" }}>
             <Button variant="neon" size="xl" asChild>
               <a href="#contact">Get in Touch</a>
             </Button>
