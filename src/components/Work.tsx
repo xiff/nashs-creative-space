@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { ExternalLink, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import work10Ans from "@/assets/works/10-ans.jpg";
 import work125Ans from "@/assets/works/125-ans.jpg";
@@ -26,31 +28,45 @@ import workKwaiipunk from "@/assets/works/kwaiipunk.jpg";
 import workTm from "@/assets/works/tm.jpg";
 
 const Work = () => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
   const works = [
-    { title: "10 ANS", image: work10Ans, bg: "bg-pink-200" },
-    { title: "125 ANS", image: work125Ans, bg: "bg-red-400" },
-    { title: "BIG HUT", image: workBighut, bg: "bg-lime-200" },
-    { title: "N-BOAT", image: workBoat, bg: "bg-teal-400" },
-    { title: "CABINE", image: workCabine, bg: "bg-violet-200" },
-    { title: "CARA", image: workCara, bg: "bg-stone-300" },
-    { title: "CARISTREAM", image: workCaristream, bg: "bg-slate-700" },
-    { title: "COMICS", image: workComics, bg: "bg-teal-400" },
-    { title: "COUCOU", image: workCoucou, bg: "bg-amber-600" },
-    { title: "FÊTE DE LA TOMATE", image: workFdlt, bg: "bg-teal-600" },
-    { title: "FORT RABBIT", image: workFortRabbit, bg: "bg-amber-100" },
-    { title: "INSOMNI'HACK", image: workInsomniHack, bg: "bg-red-700" },
-    { title: "HORSE", image: workHorse, bg: "bg-stone-400" },
-    { title: "LE CONTRETEMPS", image: workLeContretemps, bg: "bg-teal-400" },
-    { title: "LOGOS", image: workLogos1, bg: "bg-gray-100" },
-    { title: "MUZICOS", image: workMuzicos, bg: "bg-violet-500" },
-    { title: "LOGOS 2", image: workLogos2, bg: "bg-gray-100" },
-    { title: "PAIHEME", image: workPaiheme, bg: "bg-teal-400" },
-    { title: "PENBANK", image: workPenbank, bg: "bg-pink-400" },
-    { title: "SLAW", image: workSlaw, bg: "bg-teal-600" },
-    { title: "TONNEAU JOYEUX", image: workTonneauJoyeux, bg: "bg-yellow-400" },
-    { title: "KWAIIPUNK", image: workKwaiipunk, bg: "bg-blue-300" },
-    { title: "TM", image: workTm, bg: "bg-zinc-700" },
+    { title: "10 ANS", image: work10Ans },
+    { title: "125 ANS", image: work125Ans },
+    { title: "BIG HUT", image: workBighut },
+    { title: "N-BOAT", image: workBoat },
+    { title: "CABINE", image: workCabine },
+    { title: "CARA", image: workCara },
+    { title: "CARISTREAM", image: workCaristream },
+    { title: "COMICS", image: workComics },
+    { title: "COUCOU", image: workCoucou },
+    { title: "FÊTE DE LA TOMATE", image: workFdlt },
+    { title: "FORT RABBIT", image: workFortRabbit },
+    { title: "INSOMNI'HACK", image: workInsomniHack },
+    { title: "HORSE", image: workHorse },
+    { title: "LE CONTRETEMPS", image: workLeContretemps },
+    { title: "LOGOS", image: workLogos1 },
+    { title: "MUZICOS", image: workMuzicos },
+    { title: "LOGOS 2", image: workLogos2 },
+    { title: "PAIHEME", image: workPaiheme },
+    { title: "PENBANK", image: workPenbank },
+    { title: "SLAW", image: workSlaw },
+    { title: "TONNEAU JOYEUX", image: workTonneauJoyeux },
+    { title: "KWAIIPUNK", image: workKwaiipunk },
+    { title: "TM", image: workTm },
   ];
+
+  const handlePrev = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex(selectedIndex === 0 ? works.length - 1 : selectedIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex(selectedIndex === works.length - 1 ? 0 : selectedIndex + 1);
+    }
+  };
 
   return (
     <section id="work" className="py-20 bg-background">
@@ -59,13 +75,14 @@ const Work = () => {
           {works.map((work, index) => (
             <div
               key={work.title}
-              className={`break-inside-avoid group relative rounded-lg ${work.bg} overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer p-2`}
+              className="break-inside-avoid group relative overflow-hidden transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               style={{ animationDelay: `${index * 0.05}s` }}
+              onClick={() => setSelectedIndex(index)}
             >
               <img
                 src={work.image}
                 alt={work.title}
-                className="w-full h-auto rounded-md shadow-lg"
+                className="w-full h-auto rounded-lg"
                 loading="lazy"
               />
             </div>
@@ -86,6 +103,51 @@ const Work = () => {
           </Button>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <Dialog open={selectedIndex !== null} onOpenChange={() => setSelectedIndex(null)}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-md border-none">
+          <div className="relative flex items-center justify-center w-full h-full">
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedIndex(null)}
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-background/80 hover:bg-background transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Previous button */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-4 z-50 p-3 rounded-full bg-background/80 hover:bg-background transition-colors"
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+
+            {/* Image */}
+            {selectedIndex !== null && (
+              <div className="flex flex-col items-center p-8">
+                <img
+                  src={works[selectedIndex].image}
+                  alt={works[selectedIndex].title}
+                  className="max-w-full max-h-[80vh] object-contain rounded-lg"
+                />
+                <p className="mt-4 text-xl font-display text-foreground">
+                  {works[selectedIndex].title}
+                </p>
+              </div>
+            )}
+
+            {/* Next button */}
+            <button
+              onClick={handleNext}
+              className="absolute right-4 z-50 p-3 rounded-full bg-background/80 hover:bg-background transition-colors"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
