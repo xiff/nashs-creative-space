@@ -10,16 +10,13 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Je suis <span className="text-foreground font-medium">Nash</span>, graphiste indépendant depuis plus de quinze ans. Mon parcours a commencé dans le graffiti, la peinture et le street art, avant de s'ouvrir à la réalisation publicitaire puis au design graphique. Aujourd'hui, je crée des images pour des marques, des entreprises et le secteur culturel.
+                Je suis <span className="text-foreground font-medium">Nash</span>, graphiste indépendant depuis plus de quinze ans. Après un parcours entre graffiti, peinture et street art, j'ai évolué vers la réalisation publicitaire puis le design graphique. Aujourd'hui, je crée des visuels pour des marques, des entreprises et le secteur culturel.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Mon univers puise dans la subculture, le folklore et les traditions du monde, leurs symboliques, mais aussi dans l'architecture pour sa rigueur et ses structures, et dans la nature, source infinie de formes organiques. Chaque création est pensée comme un ensemble vivant, où chaque détail a sa place et son histoire. J'accorde une attention particulière à la composition, à la lisibilité et à l'équilibre des formes.
+                Mon travail s'inspire de la subculture, du folklore, de l'architecture et de la nature. Chaque image est pensée comme un ensemble vivant, avec une attention particulière à la composition, la lisibilité et l'équilibre des formes.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Bien que je suive l'évolution des technologies, les œuvres présentées ici sont réalisées sans recours à l'intelligence générative. Je tiens à proposer un travail authentique, personnel et singulier.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Chaque projet est conçu dans une logique de collaboration : écouter, comprendre et façonner des images qui reflètent votre identité et captent l'attention. Mon objectif est de créer des visuels qui racontent votre histoire et renforcent votre identité.
+                Les œuvres présentées ici sont réalisées sans recours à l'intelligence générative, pour garantir un travail authentique et singulier. Chaque projet est une collaboration : écouter, comprendre et façonner des images qui reflètent votre identité et captent l'attention.
               </p>
             </div>
 
