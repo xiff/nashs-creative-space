@@ -22,8 +22,8 @@ const Contact = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
+      title: "Message envoyé !",
+      description: "Merci pour votre message. Je vous répondrai rapidement.",
     });
 
     setFormData({ name: "", email: "", message: "" });
@@ -47,7 +47,7 @@ const Contact = () => {
             <span className="text-gradient">Contact</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-xl mx-auto">
-            Have a project in mind or just want to say hello? Drop me a message!
+            Un projet en tête ou simplement envie de dire bonjour ? Envoyez-moi un message !
           </p>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -56,7 +56,7 @@ const Contact = () => {
               <div>
                 <Input
                   name="name"
-                  placeholder="Your Name"
+                  placeholder="Votre nom"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -67,7 +67,7 @@ const Contact = () => {
                 <Input
                   name="email"
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="Votre email"
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -77,7 +77,7 @@ const Contact = () => {
               <div>
                 <Textarea
                   name="message"
-                  placeholder="Your Message"
+                  placeholder="Votre message"
                   value={formData.message}
                   onChange={handleChange}
                   required
@@ -93,10 +93,10 @@ const Contact = () => {
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  "Sending..."
+                  "Envoi en cours..."
                 ) : (
                   <>
-                    Send Message
+                    Envoyer
                     <Send className="w-4 h-4 ml-2" />
                   </>
                 )}
@@ -107,18 +107,18 @@ const Contact = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="font-display text-2xl mb-4 text-foreground">
-                  Let's Connect
+                  Restons en contact
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Whether you're interested in commissioning artwork, collaborating
-                  on a project, or just want to chat about design—I'm always open
-                  to new connections.
+                  Que vous souhaitiez commander une création, collaborer sur un projet
+                  ou simplement discuter design — je suis toujours ouvert aux nouvelles
+                  connexions.
                 </p>
               </div>
 
               <div className="space-y-4">
                 <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                  Find me on
+                  Retrouvez-moi sur
                 </h4>
                 <a
                   href="https://www.instagram.com/nash_nicolas_ryffel/"
@@ -144,7 +144,7 @@ const Contact = () => {
                     <ShoppingBag className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                   </div>
                   <div>
-                    <div className="font-medium text-foreground">Shop</div>
+                    <div className="font-medium text-foreground">Boutique</div>
                     <div className="text-sm text-muted-foreground">nashshop.fr</div>
                   </div>
                 </a>

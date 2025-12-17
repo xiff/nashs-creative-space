@@ -60,7 +60,7 @@ const Footer = () => {
 
         <div className="text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Nash — Nicolas Ryffel. All rights reserved.
+            © {new Date().getFullYear()} Nash — Nicolas Ryffel. Tous droits réservés.
           </p>
         </div>
       </div>

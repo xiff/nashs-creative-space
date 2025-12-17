@@ -33,10 +33,10 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 animate-slide-up" style={{ animationDelay: "0.4s" }}>
             <Button variant="neon" size="xl" asChild>
-              <a href="#contact">Get in Touch</a>
+              <a href="#contact">Me contacter</a>
             </Button>
             <Button variant="outline" size="xl" asChild>
-              <a href="#work">View Work</a>
+              <a href="#work">Voir les travaux</a>
             </Button>
           </div>
         </div>
