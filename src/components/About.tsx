@@ -10,19 +10,16 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm <span className="text-foreground font-medium">Nash</span>, a designer and digital artist passionate about merging
-                contrasting worlds—blending the raw energy of cyberpunk with the
-                soft charm of kawaii aesthetics.
+                J'ai exploré le graffiti, la peinture et le street art avant de me tourner vers la réalisation publicitaire, puis vers le design graphique, que j'exerce en tant qu'indépendant depuis plus de <span className="text-foreground font-medium">15 ans</span>. Un quotidien au service de marques, d'entreprises ou de la culture.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                My work explores the intersection of technology and emotion,
-                creating visuals that feel both futuristic and nostalgic. Every
-                piece is crafted with attention to detail and a love for vibrant
-                colors.
+                Aujourd'hui, je me concentre sur la création d'images influencées par la subculture, le folklore et les traditions du monde, l'architecture pour sa rigueur et ses structures, ainsi que la nature, source inépuisable de formes organiques.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                When I'm not designing, you can find me streaming on Twitch,
-                sharing my creative process and connecting with fellow artists.
+                Un soin particulier est apporté à la composition, à la lisibilité, à la cohérence et à l'équilibre des formes. Chaque image est pensée comme un ensemble vivant, où chaque élément a sa place et son histoire.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Toutes mes œuvres sont conçues sans recours à l'intelligence générative, pour un travail authentique, personnel et singulier. Je réalise la quasi-totalité de mes illustrations en direct sur <span className="text-foreground font-medium">Twitch</span>.
               </p>
             </div>
 
