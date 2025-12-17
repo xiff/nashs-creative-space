@@ -4,7 +4,7 @@ const About = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-5xl md:text-7xl mb-12 text-center">
-            <span className="text-gradient">About</span>
+            <span className="text-gradient">À propos</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -43,7 +43,7 @@ const About = () => {
           <div className="grid grid-cols-3 gap-8 mt-20 pt-12 border-t border-border">
             <div className="text-center">
               <div className="font-display text-4xl md:text-5xl text-gradient mb-2">∞</div>
-              <div className="text-muted-foreground text-sm uppercase tracking-wider">Creativity</div>
+              <div className="text-muted-foreground text-sm uppercase tracking-wider">Créativité</div>
             </div>
             <div className="text-center">
               <div className="font-display text-4xl md:text-5xl text-gradient mb-2">24/7</div>
@@ -51,7 +51,7 @@ const About = () => {
             </div>
             <div className="text-center">
               <div className="font-display text-4xl md:text-5xl text-gradient mb-2">100%</div>
-              <div className="text-muted-foreground text-sm uppercase tracking-wider">Dedication</div>
+              <div className="text-muted-foreground text-sm uppercase tracking-wider">Dévouement</div>
             </div>
           </div>
         </div>
