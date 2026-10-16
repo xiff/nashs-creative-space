@@ -23,6 +23,9 @@ const Hero = () => {
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
             Créateur d'images et d'identités
           </p>
+          <p className="text-sm text-muted-foreground mb-4 animate-slide-up">
+            <span className="inline-block rounded-md border border-border bg-card px-3 py-1.5">✦ 100% fait main — sans IA générative</span>
+          </p>
           <a 
             href="mailto:nash@n45h.ch" 
             className="text-lg text-muted-foreground hover:text-primary transition-colors animate-slide-up"

@@ -52,7 +52,7 @@ const Work = () => {
     { title: "PENBANK", image: workPenbank },
     { title: "SLAW", image: workSlaw },
     { title: "TONNEAU JOYEUX", image: workTonneauJoyeux },
-    { title: "KWAIIPUNK", image: workKwaiipunk },
+    { title: "KAWAIIPUNK", image: workKwaiipunk },
     { title: "TM", image: workTm },
   ];
 
@@ -71,6 +71,12 @@ const Work = () => {
   return (
     <section id="work" className="py-20 bg-background">
       <div className="container mx-auto px-4">
+        <h2 className="font-display text-5xl md:text-7xl mb-4 text-center">
+          <span className="text-gradient">Travaux</span>
+        </h2>
+        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+          Une sélection de projets pour des marques, des entreprises et le secteur culturel.
+        </p>
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
           {works.map((work, index) => (
             <div
@@ -97,7 +103,7 @@ const Work = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2"
             >
-              Visit the Shop
+              Voir la boutique
               <ExternalLink className="w-4 h-4" />
             </a>
           </Button>
