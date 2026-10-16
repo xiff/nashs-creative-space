@@ -1,10 +1,14 @@
+import kawaiipunk from "@/assets/works/kwaiipunk.jpg";
+import comics from "@/assets/works/comics.jpg";
+import rabbit from "@/assets/works/fort-rabbit.jpg";
+
 const About = () => {
   return (
-    <section id="about" className="py-32 relative">
+    <section id="about" className="py-24 md:py-32 relative scroll-mt-24">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="font-display text-5xl md:text-7xl mb-12 text-center">
-            <span className="text-gradient">À propos</span>
+            <span className="marker-title">À propos</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -20,22 +24,12 @@ const About = () => {
               </p>
             </div>
 
-            <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-card border border-border overflow-hidden relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-neon-pink/20 to-neon-purple/20 group-hover:opacity-80 transition-opacity duration-500" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display text-9xl text-foreground/10 group-hover:text-foreground/20 transition-colors duration-500">
-                    N
-                  </span>
-                </div>
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 text-sm text-muted-foreground font-mono">
-                  ナッシュ
-                </div>
-                <div className="absolute bottom-4 left-4 text-sm text-muted-foreground">
-                  KAWAIIPUNK
-                </div>
-              </div>
+            <div className="poster-collage" aria-label="Composition d’illustrations de Nash">
+              <div className="pasted-poster poster-one"><img src={kawaiipunk} alt="KAWAIIPUNK, ville illustrée en bleu et blanc" loading="lazy" decoding="async" width="900" height="1143" /></div>
+              <div className="pasted-poster poster-two"><img src={comics} alt="COMICS, affiche aux couleurs vives" loading="lazy" decoding="async" width="900" height="1143" /></div>
+              <div className="pasted-poster poster-three"><img src={rabbit} alt="FORT RABBIT, forteresse illustrée" loading="lazy" decoding="async" width="900" height="1143" /></div>
+              <span className="collage-japanese font-mono">ナッシュ</span>
+              <span className="collage-signature font-display">KAWAIIPUNK</span>
             </div>
           </div>
 

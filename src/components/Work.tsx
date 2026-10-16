@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ExternalLink, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
 import work10Ans from "@/assets/works/10-ans.jpg";
 import work125Ans from "@/assets/works/125-ans.jpg";
@@ -69,29 +69,36 @@ const Work = () => {
   };
 
   return (
-    <section id="work" className="py-20 bg-background">
+    <section id="work" className="py-20 scroll-mt-24">
       <div className="container mx-auto px-4">
         <h2 className="font-display text-5xl md:text-7xl mb-4 text-center">
-          <span className="text-gradient">Travaux</span>
+          <span className="marker-title">Travaux</span>
         </h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
           Une sélection de projets pour des marques, des entreprises et le secteur culturel.
         </p>
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
           {works.map((work, index) => (
-            <div
+            <Button
               key={work.title}
-              className="break-inside-avoid group relative overflow-hidden transition-all duration-300 hover:scale-[1.02] cursor-pointer"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              variant="artwork"
+              className="gallery-item break-inside-avoid group relative"
+              aria-label={`Agrandir ${work.title}`}
+              aria-describedby={`work-caption-${index}`}
               onClick={() => setSelectedIndex(index)}
             >
               <img
                 src={work.image}
                 alt={work.title}
-                className="w-full h-auto rounded-lg"
+                className="w-full h-auto"
+                decoding="async"
                 loading="lazy"
               />
-            </div>
+              <span className="gallery-caption" id={`work-caption-${index}`}>
+                <span className="font-display text-xl md:text-2xl block">{work.title}</span>
+                <span className="text-xs block">Cliquer pour agrandir</span>
+              </span>
+            </Button>
           ))}
         </div>
 
@@ -110,48 +117,21 @@ const Work = () => {
         </div>
       </div>
 
-      {/* Lightbox Modal */}
-      <Dialog open={selectedIndex !== null} onOpenChange={() => setSelectedIndex(null)}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-md border-none">
-          <div className="relative flex items-center justify-center w-full h-full">
-            {/* Close button */}
-            <button
-              onClick={() => setSelectedIndex(null)}
-              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-background/80 hover:bg-background transition-colors"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            {/* Previous button */}
-            <button
-              onClick={handlePrev}
-              className="absolute left-4 z-50 p-3 rounded-full bg-background/80 hover:bg-background transition-colors"
-            >
-              <ChevronLeft className="w-8 h-8" />
-            </button>
-
-            {/* Image */}
-            {selectedIndex !== null && (
-              <div className="flex flex-col items-center p-8">
-                <img
-                  src={works[selectedIndex].image}
-                  alt={works[selectedIndex].title}
-                  className="max-w-full max-h-[80vh] object-contain rounded-lg"
-                />
-                <p className="mt-4 text-xl font-display text-foreground">
-                  {works[selectedIndex].title}
-                </p>
-              </div>
-            )}
-
-            {/* Next button */}
-            <button
-              onClick={handleNext}
-              className="absolute right-4 z-50 p-3 rounded-full bg-background/80 hover:bg-background transition-colors"
-            >
-              <ChevronRight className="w-8 h-8" />
-            </button>
-          </div>
+      <Dialog open={selectedIndex !== null} onOpenChange={(open) => { if (!open) setSelectedIndex(null); }}>
+        <DialogContent className="lightbox max-w-[95vw] md:max-w-[90vw] p-3 md:p-6 bg-background border-2 border-foreground" onKeyDown={(event) => {
+          if (event.key === "ArrowLeft") { event.preventDefault(); handlePrev(); }
+          if (event.key === "ArrowRight") { event.preventDefault(); handleNext(); }
+        }}>
+          {selectedIndex !== null && <>
+            <DialogTitle className="sr-only">{works[selectedIndex].title}</DialogTitle>
+            <DialogDescription className="sr-only">Œuvre de Nash agrandie.</DialogDescription>
+            <img src={works[selectedIndex].image} alt={works[selectedIndex].title} className="lightbox-image w-full object-contain" />
+            <div className="flex items-center justify-between gap-3 pt-2">
+              <Button variant="outline" size="icon" className="min-h-11 min-w-11" onClick={handlePrev} aria-label="Œuvre précédente" title="Œuvre précédente"><ChevronLeft aria-hidden="true" /></Button>
+              <p className="text-center font-display text-xl md:text-2xl">{works[selectedIndex].title}<span className="block font-body text-xs text-muted-foreground">{selectedIndex + 1} / {works.length}</span></p>
+              <Button variant="outline" size="icon" className="min-h-11 min-w-11" onClick={handleNext} aria-label="Œuvre suivante" title="Œuvre suivante"><ChevronRight aria-hidden="true" /></Button>
+            </div>
+          </>}
         </DialogContent>
       </Dialog>
     </section>

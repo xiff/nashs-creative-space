@@ -1,58 +1,51 @@
+import { useState } from "react";
+import { ArrowDown, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import boat from "@/assets/hero/boat.webp";
+import comics from "@/assets/hero/comics.webp";
+import kawaiipunk from "@/assets/hero/kwaiipunk.webp";
+import rabbit from "@/assets/hero/fort-rabbit.webp";
+import anniversary from "@/assets/hero/10-ans.webp";
+import caristream from "@/assets/hero/caristream.webp";
+import tomato from "@/assets/hero/fdlt.webp";
+import bighut from "@/assets/hero/bighut.webp";
+import penbank from "@/assets/hero/penbank.webp";
+
+const rows = [[boat, comics, kawaiipunk, anniversary], [rabbit, caristream, tomato, penbank], [bighut, kawaiipunk, boat, comics]];
 
 const Hero = () => {
+  const [paused, setPaused] = useState(false);
   return (
-    <section
-      id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-hero"
-    >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
+    <section id="hero" className="art-hero relative isolate overflow-hidden flex items-center justify-center">
+      <div className={`poster-wall ${paused ? "is-paused" : ""}`} aria-hidden="true">
+        {rows.map((row, index) => (
+          <div className="poster-row" key={index}>
+            <div className="poster-track">
+              {[0, 1].map((copy) => <div className="poster-set" key={copy}>
+                {row.map((image, position) => <img key={`${copy}-${position}`} src={image} alt="" width="360" height="457" decoding="async" loading={index === 0 && position < 2 ? "eager" : "lazy"} />)}
+              </div>)}
+            </div>
+          </div>
+        ))}
       </div>
-
-      <div className="container mx-auto px-6 py-20 relative z-10">
+      <div className="hero-veil absolute inset-0 pointer-events-none" />
+      <div className="container mx-auto px-6 relative z-10 py-24">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="font-display text-8xl md:text-[12rem] leading-none mb-6 animate-slide-up">
-            <span className="text-violet glow-text">NASH</span>
-          </h1>
-          <p className="text-2xl md:text-3xl text-foreground font-medium mb-2 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Nicolas Ryffel
-          </p>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            Créateur d'images et d'identités
-          </p>
-          <p className="text-sm text-muted-foreground mb-4 animate-slide-up">
-            <span className="inline-block rounded-md border border-border bg-card px-3 py-1.5">✦ 100% fait main — sans IA générative</span>
-          </p>
-          <a 
-            href="mailto:nash@n45h.ch" 
-            className="text-lg text-muted-foreground hover:text-primary transition-colors animate-slide-up"
-            style={{ animationDelay: "0.3s" }}
-          >
-            nash@n45h.ch
-          </a>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 animate-slide-up" style={{ animationDelay: "0.4s" }}>
-            <Button variant="neon" size="xl" asChild>
-              <a href="#contact">Me contacter</a>
-            </Button>
-            <Button variant="outline" size="xl" asChild>
-              <a href="#work">Voir les travaux</a>
-            </Button>
+          <h1 className="hero-name font-display text-primary leading-none">NASH</h1>
+          <p className="text-xl md:text-2xl text-foreground font-semibold mb-3">Nicolas Ryffel — Graphiste à Lausanne</p>
+          <p className="text-lg md:text-2xl text-foreground mb-6">Créateur d’images et d’identités</p>
+          <p className="mb-5"><span className="handmade-badge inline-block text-sm font-semibold px-3 py-2">✦ 100% fait main — sans IA générative</span></p>
+          <a href="mailto:nash@n45h.ch" className="text-base text-foreground underline decoration-primary underline-offset-4 hover:text-primary">nash@n45h.ch</a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-9">
+            <Button variant="neon" size="xl" asChild><a href="#contact">Me contacter</a></Button>
+            <Button variant="outline" size="xl" asChild><a href="#work">Voir les travaux <ArrowDown aria-hidden="true" /></a></Button>
           </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/50 flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-primary rounded-full animate-pulse" />
-        </div>
-      </div>
+      <Button variant="outline" size="icon" className="marquee-control absolute bottom-5 right-5 z-20 min-h-11 min-w-11" onClick={() => setPaused(!paused)} aria-label={paused ? "Reprendre le défilement des œuvres" : "Mettre le défilement en pause"} title={paused ? "Reprendre le défilement" : "Mettre en pause"}>
+        {paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}
+      </Button>
     </section>
   );
 };
-
 export default Hero;
