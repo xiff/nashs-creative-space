@@ -46,11 +46,11 @@ const Contact = ({ projectType, onProjectTypeChange }: {
   };
 
   return (
-    <section id="contact" className="py-32 relative scroll-mt-24">
+    <section id="contact" className="py-24 md:py-32 relative scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-5xl md:text-7xl mb-4 text-center">
-            <span className="text-gradient">Contact</span>
+            <span className="marker-title">Contact</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-xl mx-auto">
             Un projet en tête ou simplement envie de dire bonjour ? Envoyez-moi un message !

@@ -13,11 +13,11 @@ const Services = ({ onSelectProject }: { onSelectProject: (type: ProjectType) =>
   <section id="services" className="py-20 scroll-mt-24">
     <div className="container mx-auto px-6">
       <h2 className="font-display text-5xl md:text-7xl mb-12 text-center">
-        <span className="text-gradient">Ce que je crée</span>
+        <span className="marker-title">Ce que je crée</span>
       </h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map(({ title, description, type, icon: Icon }) => (
-          <article key={type} className="rounded-lg bg-card border border-border p-6 flex flex-col items-start">
+          <article key={type} className="service-sticker bg-card p-6 flex flex-col items-start">
             <Icon className="w-7 h-7 text-primary mb-6" aria-hidden="true" />
             <h3 className="font-display text-3xl mb-4">{title}</h3>
             <p className="text-muted-foreground leading-relaxed mb-6">{description}</p>
