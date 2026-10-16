@@ -33,6 +33,12 @@ const Navbar = () => {
             À propos
           </a>
           <a
+            href="#services"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+          >
+            Services
+          </a>
+          <a
             href="#work"
             className="text-muted-foreground hover:text-foreground transition-colors duration-300"
           >

@@ -4,30 +4,36 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Instagram, ShoppingBag, Twitch } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { projectTypes, type ProjectType } from "@/lib/project-types";
 
-const Contact = () => {
+const Contact = ({ projectType, onProjectTypeChange }: {
+  projectType: ProjectType;
+  onProjectTypeChange: (type: ProjectType) => void;
+}) => {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const subject = `Demande de projet — ${formData.name.trim()}`;
+    const body = [
+      `Nom : ${formData.name.trim()}`,
+      `Email : ${formData.email.trim()}`,
+      `Type de projet : ${projectType}`,
+      "",
+      "Message :",
+      formData.message.trim(),
+    ].join("\n");
+    window.location.href = `mailto:nash@n45h.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     toast({
-      title: "Message envoyé !",
-      description: "Merci pour votre message. Je vous répondrai rapidement.",
+      title: "Votre messagerie s'ouvre pour envoyer le message",
     });
-
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
   };
 
   const handleChange = (
@@ -40,7 +46,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 relative">
+    <section id="contact" className="py-32 relative scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-5xl md:text-7xl mb-4 text-center">
@@ -56,6 +62,8 @@ const Contact = () => {
               <div>
                 <Input
                   name="name"
+                  aria-label="Votre nom"
+                  autoComplete="name"
                   placeholder="Votre nom"
                   value={formData.name}
                   onChange={handleChange}
@@ -66,6 +74,8 @@ const Contact = () => {
               <div>
                 <Input
                   name="email"
+                  aria-label="Votre email"
+                  autoComplete="email"
                   type="email"
                   placeholder="Votre email"
                   value={formData.email}
@@ -75,8 +85,23 @@ const Contact = () => {
                 />
               </div>
               <div>
+                <label htmlFor="project-type" className="block text-sm font-medium mb-2">Type de projet</label>
+                <Select name="projectType" value={projectType} onValueChange={(value) => {
+                  const selected = projectTypes.find((type) => type === value);
+                  if (selected) onProjectTypeChange(selected);
+                }}>
+                  <SelectTrigger id="project-type" className="bg-card border-border h-12">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {projectTypes.map((type) => <SelectItem key={type} value={type}>{type}</SelectItem>)}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
                 <Textarea
                   name="message"
+                  aria-label="Votre message"
                   placeholder="Votre message"
                   value={formData.message}
                   onChange={handleChange}
@@ -90,17 +115,13 @@ const Contact = () => {
                 variant="neon"
                 size="lg"
                 className="w-full"
-                disabled={isSubmitting}
               >
-                {isSubmitting ? (
-                  "Envoi en cours..."
-                ) : (
-                  <>
-                    Envoyer
-                    <Send className="w-4 h-4 ml-2" />
-                  </>
-                )}
+                Envoyer
+                <Send className="w-4 h-4 ml-2" />
               </Button>
+              <p className="text-sm text-muted-foreground text-center">
+                Ou écrivez directement à <a href="mailto:nash@n45h.ch" className="text-primary hover:underline">nash@n45h.ch</a>
+              </p>
             </form>
 
             {/* Contact Info */}
