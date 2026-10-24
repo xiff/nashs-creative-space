@@ -82,7 +82,7 @@ const Work = () => {
             <Button
               key={work.title}
               variant="artwork"
-              className="gallery-item break-inside-avoid group relative"
+              className="gallery-item break-inside-avoid group relative h-auto p-0"
               aria-label={`Agrandir ${work.title}`}
               aria-describedby={`work-caption-${index}`}
               onClick={() => setSelectedIndex(index)}
