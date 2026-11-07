@@ -5,8 +5,6 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // GitHub Pages serves the site under /nashs-creative-space/; Lovable serves it at the root.
-  base: process.env.GITHUB_PAGES ? "/nashs-creative-space/" : "/",
   server: {
     host: "::",
     port: 8080,
